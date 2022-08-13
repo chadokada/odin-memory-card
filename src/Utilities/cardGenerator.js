@@ -25,7 +25,7 @@ function getRandomCard(){
   const valIndex = Math.floor(Math.random() * values.length)
   const suitIndex = Math.floor(Math.random() * suits.length)
 
-  return `${values[valIndex]}_of_${suits[suitIndex]}.png`
+  return `${values[valIndex]}_of_${suits[suitIndex]}`
 }
 
 export default getRandomCard;

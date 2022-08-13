@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import getRandomCard from '../Utilities/cardGenerator';
 
-const Card = ({num, handleCardClick}) => {
+const Card = ({num, name, handleCardClick}) => {
   let [clicked, setClicked] = useState(0)
 
-  const id = `card${num}`;
+  const id = name;
 
   useEffect(() => {
     const handleClick = () => {
@@ -24,7 +24,7 @@ const Card = ({num, handleCardClick}) => {
       Card {num}
       <img 
         className="cardImg"
-        src={require('../Images/2_of_clubs.png')}
+        src={require(`../Images/${name}.png`)}
         />
     </div>
   )
