@@ -1,18 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
+import pic from '../Images/2_of_clubs.png'
+import getRandomCard from '../Utilities/cardGenerator';
+
+console.log(getRandomCard())
+
 
 const Gameboard = () => {
+  let [score, setScore] = useState(0);
 
   const nums = []
-
   for (let i = 1; i < 13; i++ ){
     nums.push(i);
   }
 
 
-  const testCallBack = (cardData) => {
-    console.log(cardData);
+  const handleCardClick = (clicked) => {
+    if (clicked === 1) {
+      setScore(score += 1);
+    } else {
+      setScore(0);
+    }
   }
+
+  useEffect(() => {
+    console.log(`Current score: ${score}`)
+  }, [score])
 
   return (
 
@@ -20,12 +33,14 @@ const Gameboard = () => {
       {nums.map((num) => {
         return(
           <Card 
-            name={num} 
+            num={num} 
             key={num} 
-            gameBoardCallBack = {testCallBack}
+            handleCardClick = {handleCardClick}
           />
         )    
       })}
+
+
       
     </div>
   )
