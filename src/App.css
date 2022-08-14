@@ -6,7 +6,7 @@
 .gameboard {
   border: 2px black solid; /* Change after styles finalized */
   /*height: 500px;*/             /* Change after styles finalized */
-  width: 75%;                /* Change after styles finalized */
+  width: 1000px;                /* Change after styles finalized */
   
   padding: 5px;
   display: flex;
@@ -15,15 +15,24 @@
 }
 
 .card-container{
-  border: 1px red solid;
+  border: 2px blue solid;
+  background-color: grey;
+  padding: 5px;
+  /*
   height: 150px;
+  */
   width: 150px;
   box-sizing: border-box;
   display: flex;
+  flex-flow: row wrap;
+}
+
+.card-container > div{ /*This is a temporary style!!!*/
+  width: 100%;
 }
 
 .cardImg{
   max-width: 100%;
   max-height: 100%;
-  box-sizing:border-box
+  box-sizing:border-box;
 }
