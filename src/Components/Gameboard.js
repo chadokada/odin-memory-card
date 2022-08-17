@@ -19,27 +19,28 @@ const Gameboard = () => {
   let [cards, setCards] = useState(tempCards)
 
 
-  const newCards = () => {
-    const _cards = []
+  const getNewCards = () => {
+    const newCards = [];
     for (let i = 1; i < 13; i++ ){
-      _cards.push(
+      newCards.push(
         {
           name: getRandomCard(),
           clicked: 0
         }
       )
     }
-    setCards(_cards)
+    return newCards;
   }
   
 
   const handleCardClick = (event) => {
     const cardNum = event.target.getAttribute('cardnum')
-    const card = cards[cardNum]
+    //const card = cards[cardNum]
     let newCards = [...cards];
     newCards[cardNum].clicked += 1; 
     
     setCards(newCards)
+
 
   }
 
@@ -48,15 +49,26 @@ const Gameboard = () => {
     let newScore = 0;
 
     for (let card of cards) {
-      newScore += card.clicked
-      /*
+   
       if (card.clicked > 1) {
         newScore = 0;
+
+        console.table(cards);
+        console.log('******************************************************************')
+
+        const newCards = getNewCards();
+        //setCards(newCards)
+
+        setCards(cards => (newCards))
+
+        console.table(cards);
+        console.log('///////////////////////////////////////////////////////////////////////')
+
         break
       } else {
         newScore += card.clicked;
       }
-      */
+      
     }
     setScore(newScore) 
   }, [cards])

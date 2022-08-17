@@ -6,7 +6,7 @@
 .gameboard {
   border: 2px black solid; /* Change after styles finalized */
   /*height: 500px;*/             /* Change after styles finalized */
-  width: 1000px;                /* Change after styles finalized */
+  max-width: 1000px;                /* Change after styles finalized */
   
   padding: 5px;
   display: flex;

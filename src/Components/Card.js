@@ -7,8 +7,7 @@ const Card = ({num, name, handleCardClick}) => {
   useEffect((event) => {
     const handleClick = (event) => {
       handleCardClick(event)
-      event.preventDefault();
-      console.log(event.target)
+      //event.preventDefault();
     }
   
     document.getElementById(id).addEventListener('click', handleClick)
@@ -24,7 +23,7 @@ const Card = ({num, name, handleCardClick}) => {
       
         <img 
         className="cardImg"
-         
+        alt={name} 
         cardnum={num}
         src={require(`../Images/${name}.png`)}
         />
