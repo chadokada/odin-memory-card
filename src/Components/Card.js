@@ -2,11 +2,13 @@ import React, { useEffect } from 'react';
 //import getRandomCard from '../Utilities/cardGenerator';
 
 const Card = ({num, name, handleCardClick}) => {
-  const id = name;
+  const id = num;
 
   useEffect((event) => {
     const handleClick = (event) => {
       handleCardClick(event)
+      event.preventDefault();
+      console.log(event.target)
     }
   
     document.getElementById(id).addEventListener('click', handleClick)
@@ -17,12 +19,12 @@ const Card = ({num, name, handleCardClick}) => {
   }, [id])
 
   return (
-    <div className='card-container' >
+    <div className='card-container' id={id}>
       <div>Card {num+1}</div>
       
         <img 
         className="cardImg"
-        id={id} 
+         
         cardnum={num}
         src={require(`../Images/${name}.png`)}
         />
