@@ -1,4 +1,3 @@
-
 function getRandomCard(){
   const values = [
     '2',

@@ -1,27 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import getRandomCard from '../Utilities/cardGenerator';
+import randomizeArrayIndicies from '../Utilities/randomizeArrayIndicies';
 
 const Gameboard = () => {
-  let [score, setScore] = useState(0);
-
-  // Replace this when cards are implemented
-  const tempCards = []
-  for (let i = 1; i < 13; i++ ){
-    tempCards.push(
-      {
-        name: getRandomCard(),
-        clicked: 0
-      }
-    )
-  }
-
-  let [cards, setCards] = useState(tempCards)
-
+  const DECK_SIZE = 12
 
   const getNewCards = () => {
     const newCards = [];
-    for (let i = 1; i < 13; i++ ){
+    for (let i = 1; i < DECK_SIZE + 1; i++ ){
       newCards.push(
         {
           name: getRandomCard(),
@@ -31,49 +18,32 @@ const Gameboard = () => {
     }
     return newCards;
   }
-  
 
+  let [score, setScore] = useState(0);
+  let [cards, setCards] = useState(getNewCards())
+  
   const handleCardClick = (event) => {
     const cardNum = event.target.getAttribute('cardnum')
-    //const card = cards[cardNum]
     let newCards = [...cards];
     newCards[cardNum].clicked += 1; 
-    
     setCards(newCards)
-
-
   }
-
   
   useEffect(() => {
     let newScore = 0;
 
     for (let card of cards) {
-   
       if (card.clicked > 1) {
         newScore = 0;
-
-        console.table(cards);
-        console.log('******************************************************************')
-
-        const newCards = getNewCards();
-        //setCards(newCards)
-
-        setCards(cards => (newCards))
-
-        console.table(cards);
-        console.log('///////////////////////////////////////////////////////////////////////')
-
+        setCards(getNewCards());
         break
       } else {
         newScore += card.clicked;
       }
-      
     }
     setScore(newScore) 
   }, [cards])
   
-
   useEffect(() => {
     const scoreDiv = document.querySelector('.score')
     scoreDiv.innerHTML = score;
@@ -84,6 +54,21 @@ const Gameboard = () => {
     <div className="game-controller">
       <div className="score"></div>
       <div className="gameboard">
+
+        {randomizeArrayIndicies(DECK_SIZE).map((random) => {
+            const card = cards[random]
+            return(
+              <Card 
+                num={random}
+                name={card.name} 
+                key={random} 
+                handleCardClick = {handleCardClick}
+              />
+            )
+          })
+        }
+
+      {/*
         {cards.map((card, index) => {
           return(
             <Card 
@@ -94,6 +79,8 @@ const Gameboard = () => {
             />
           )    
         })}
+      */}
+
       </div>
     </div>
   )

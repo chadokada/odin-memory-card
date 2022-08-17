@@ -1,24 +1,37 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 //import getRandomCard from '../Utilities/cardGenerator';
 
 const Card = ({num, name, handleCardClick}) => {
   const id = num;
 
-  useEffect((event) => {
+  const handleClick = (event) => {
+    handleCardClick(event)
+  }
+
+  /*
+  NEED TO UNDERSTAND WHY THIS IMPLEMENTATION USED OLD STATE
+
+  useEffect((event) => { 
+  
     const handleClick = (event) => {
       handleCardClick(event)
       //event.preventDefault();
     }
-  
+
     document.getElementById(id).addEventListener('click', handleClick)
 
     return ()  => {
       document.getElementById(id).removeEventListener('click', handleClick)
     };
   }, [id])
+  */
 
   return (
-    <div className='card-container' id={id}>
+    <div 
+      className='card-container' 
+      id={id}
+      onClick={handleClick}
+    >
       <div>Card {num+1}</div>
       
         <img 
