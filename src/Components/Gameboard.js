@@ -20,6 +20,7 @@ const Gameboard = () => {
   }
 
   let [score, setScore] = useState(0);
+  let [bestScore, setBestScore] = useState(0);
   let [cards, setCards] = useState(getNewCards())
   
   const handleCardClick = (event) => {
@@ -29,13 +30,21 @@ const Gameboard = () => {
     setCards(newCards)
   }
   
+  const endOfGame = () => {
+    setCards(getNewCards());
+
+    if (score > bestScore) {
+      setBestScore(score)
+    }
+  }
+
   useEffect(() => {
     let newScore = 0;
 
     for (let card of cards) {
       if (card.clicked > 1) {
         newScore = 0;
-        setCards(getNewCards());
+        endOfGame();
         break
       } else {
         newScore += card.clicked;
@@ -44,15 +53,10 @@ const Gameboard = () => {
     setScore(newScore) 
   }, [cards])
   
-  useEffect(() => {
-    const scoreDiv = document.querySelector('.score')
-    scoreDiv.innerHTML = score;
-    console.log(`Current score: ${score}`)
-  }, [score])
-
   return (
     <div className="game-controller">
-      <div className="score"></div>
+      <div className="current-score">Current Score: {score}</div>
+      <div className="best-score">Best Score: {bestScore}</div>
       <div className="gameboard">
 
         {randomizeArrayIndicies(DECK_SIZE).map((random) => {
@@ -67,19 +71,6 @@ const Gameboard = () => {
             )
           })
         }
-
-      {/*
-        {cards.map((card, index) => {
-          return(
-            <Card 
-              num={index}
-              name={card.name} 
-              key={index} 
-              handleCardClick = {handleCardClick}
-            />
-          )    
-        })}
-      */}
 
       </div>
     </div>

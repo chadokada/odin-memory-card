@@ -1,5 +1,4 @@
 import React from 'react';
-//import getRandomCard from '../Utilities/cardGenerator';
 
 const Card = ({num, name, handleCardClick}) => {
   const id = num;
@@ -27,20 +26,13 @@ const Card = ({num, name, handleCardClick}) => {
   */
 
   return (
-    <div 
-      className='card-container' 
-      id={id}
-      onClick={handleClick}
-    >
-      <div>Card {num+1}</div>
-      
-        <img 
-        className="cardImg"
-        alt={name} 
-        cardnum={num}
-        src={require(`../Images/${name}.png`)}
-        />
-      
+    <div className='card-container' id={id} onClick={handleClick}>
+      <img 
+      className="cardImg"
+      alt={name} 
+      cardnum={num}
+      src={require(`../Images/${name}.png`)}
+      />
     </div>
   )
 }
