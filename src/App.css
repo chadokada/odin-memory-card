@@ -1,34 +1,35 @@
+#root{
+  height: 100vh;
+  background-color: rgb(57 144 101);
+}
+
 .game-container{
   display: flex;
   justify-content: center;
+  --card-width: 150;
+  --card-spacing: 20;
+  --content-background-color: rgb(53 101 77);
 }
 
 .gameboard {
-  border: 2px black solid; /* Change after styles finalized */
-  /*height: 500px;*/             /* Change after styles finalized */
-  max-width: 1000px;                /* Change after styles finalized */
-  
-  padding: 5px;
   display: flex;
-  gap: 5px;
-  flex-flow: row wrap
+  flex-flow: row wrap;
+
+  background-color: var(--content-background-color);
+  border: 5px rgb(245, 245, 245) solid; 
+  border-radius: 15px;
+  
+  max-width: calc(var(--card-width) * 6px + var(--card-spacing) * 5px);               
+  padding: calc(var(--card-spacing) * 1px);
+  gap: calc(var(--card-spacing) * 1px);
+  
 }
 
 .card-container{
-  border: 2px blue solid;
-  background-color: grey;
-  padding: 5px;
-  /*
-  height: 150px;
-  */
-  width: 150px;
+  width: calc(var(--card-width) * 1px);
   box-sizing: border-box;
   display: flex;
   flex-flow: row wrap;
-}
-
-.card-container > div{ /*This is a temporary style!!!*/
-  width: 100%;
 }
 
 .cardImg{
