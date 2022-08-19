@@ -55,7 +55,7 @@ const Gameboard = () => {
   
   return (
     <div className="game-controller">
-      <div className="current-score">Current Score: {score}</div>
+      <div className="current-score">CURRENT SCORE: {score}</div>
       <div className="best-score">Best Score: {bestScore}</div>
       <div className="gameboard">
 

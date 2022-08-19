@@ -1,11 +1,23 @@
+@font-face{
+  font-family: BemboStd;
+  src: url('./Fonts/BemboStd.otf') format('opentype')
+}
+
+@font-face{
+  font-family: FlakerGriffoBold;
+  src: url('./Fonts/Flanker\ Griffo\ Bold.otf') format('opentype')
+}
+
 #root{
   height: 100vh;
   background-color: rgb(57 144 101);
+  font-family: FlakerGriffoBold;
 }
 
 .game-container{
   display: flex;
   justify-content: center;
+  width: 100%;
   --card-width: 150;
   --card-spacing: 20;
   --content-background-color: rgb(53 101 77);
