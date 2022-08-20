@@ -7,24 +7,6 @@ const Card = ({num, name, handleCardClick}) => {
     handleCardClick(event)
   }
 
-  /*
-  NEED TO UNDERSTAND WHY THIS IMPLEMENTATION USED OLD STATE
-
-  useEffect((event) => { 
-  
-    const handleClick = (event) => {
-      handleCardClick(event)
-      //event.preventDefault();
-    }
-
-    document.getElementById(id).addEventListener('click', handleClick)
-
-    return ()  => {
-      document.getElementById(id).removeEventListener('click', handleClick)
-    };
-  }, [id])
-  */
-
   return (
     <div className='card-container' id={id} onClick={handleClick}>
       <img 

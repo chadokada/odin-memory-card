@@ -1,51 +1,119 @@
 @font-face{
-  font-family: BemboStd;
-  src: url('./Fonts/BemboStd.otf') format('opentype')
+  font-family: ITCGaramondStd-Bd;
+  src: url('./Fonts/ITCGaramondStd-Bd.otf') format('opentype')
 }
 
 @font-face{
-  font-family: FlakerGriffoBold;
-  src: url('./Fonts/Flanker\ Griffo\ Bold.otf') format('opentype')
+  font-family: ITCGaramondStd-Bk;
+  src: url('./Fonts/ITCGaramondStd-Bk.otf') format('opentype')
 }
 
 #root{
+  --card-width: 180;
+  --card-spacing: 15;
+  --content-background-color: rgb(53 101 77);
+  --yellow-text-shadow: 1px 1px 0px rgb(104, 104, 4);
+  --red-text-shadow: 1px 1px 0px rgb(119, 13, 13);
+  --white-border-box-shadow: 2px 2px 1px rgb(90, 89, 89);
   height: 100vh;
-  background-color: rgb(57 144 101);
-  font-family: FlakerGriffoBold;
+  background-color: var(--content-background-color);
+  font-family: ITCGaramondStd-Bd;
 }
 
-.game-container{
+.app{
   display: flex;
   justify-content: center;
   width: 100%;
-  --card-width: 150;
-  --card-spacing: 20;
-  --content-background-color: rgb(53 101 77);
+}
+
+.game-controller{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 100%;
+  gap: 15px;
+}
+
+.game-title{
+  width: 100%;
+  padding-top: 1.5rem;
+  font-size: 5em;
+  color: rgb(255 255 0);
+  text-shadow: var(--yellow-text-shadow);
+  text-align: center;
+}
+
+.game-rules{
+  width: 100%;
+  font-family: ITCGaramondStd-Bd;
+  text-transform: uppercase;
+  font-size: 1.25em;
+  color: rgb(25, 25, 25);
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.212);
+  text-align: center;
+}
+
+li{
+  list-style: none;
+}
+
+.gameboard-container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .gameboard {
   display: flex;
   flex-flow: row wrap;
-
-  background-color: var(--content-background-color);
-  border: 5px rgb(245, 245, 245) solid; 
-  border-radius: 15px;
-  
   max-width: calc(var(--card-width) * 6px + var(--card-spacing) * 5px);               
   padding: calc(var(--card-spacing) * 1px);
   gap: calc(var(--card-spacing) * 1px);
-  
+  background-color: var(--content-background-color);
 }
 
 .card-container{
-  width: calc(var(--card-width) * 1px);
-  box-sizing: border-box;
   display: flex;
   flex-flow: row wrap;
+  width: calc(var(--card-width) * 1px);
+  box-sizing: border-box;
+  border: 5px rgb(245, 245, 245) solid;
+  border-radius: 15px;
+  box-shadow: var(--white-border-box-shadow);
+  padding: 10px;
 }
 
 .cardImg{
   max-width: 100%;
   max-height: 100%;
   box-sizing:border-box;
+  box-shadow: 0.5px 0.5px 1px rgb(150, 150 ,150, 0.5);
+}
+
+.score-board{
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  font-size: 3.5em;
+}
+
+.score-container{
+  display: flex;
+  padding: 0.75rem 1rem 0 1rem;
+  gap: 15px;
+  color: rgb(255 255 0);
+  text-shadow: var(--yellow-text-shadow);
+  border: 5px rgb(245, 245, 245) solid;
+  border-radius: 45px;
+  box-shadow: var(--white-border-box-shadow);
+}
+
+.score{
+  color: rgb(245, 245, 245);
+  text-shadow: 1px 1px 0px  rgb(134, 134, 134);
+}
+
+.best-score{
+  color: rgb(255 0 0);
+  text-shadow: var(--red-text-shadow)
 }

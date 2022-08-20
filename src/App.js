@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import Gameboard from './Components/Gameboard'
+import Gamecontroller from './Components/Gamecontroller';
 
 const App = () => {
   return (
-    <div className="game-container">
-      <Gameboard />
+    <div className="app">
+      <Gamecontroller />
     </div>
   );
 }

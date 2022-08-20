@@ -10,8 +10,8 @@ function getRandomCard(){
     '10',
     'jack',
     'queen',
-    'jack',
-    'jack'
+    'king',
+    'ace'
   ];
   
   const suits = [
